@@ -62,3 +62,9 @@ def load_sequences_into_traits():
 
             trait_sets.append(trait_set)
             targets.append(sequences[j + trait_length][i])
+            
+def main():
+    """
+    Code goes here
+    """
+main()
