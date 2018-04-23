@@ -1,3 +1,4 @@
+from seq1Data import sequences as sq
 
 trait_length = 20
 sets_desired = 80
@@ -19,6 +20,33 @@ def load_data_into_sequences():
     """
     Will read from fasta file and fill sequences
     """
+    seq_file = open("aligned_fasta_H3N2A_23APR2018.aln", 'r')
+    raw_data = seq_file.readlines()
+    current_seq = []
+
+    standard_length = len(raw_data[0])
+
+    for line in raw_data:
+        print(line)
+        if line[0] == '>':
+            if len(current_seq) > 0:
+                sequences.append(current_seq)
+            current_seq = []
+        else:
+            for base in range(standard_length):
+
+                if base >= len(line):
+                    current_seq.append(0)
+                elif line[base] == 'a':
+                    current_seq.append(1)
+                elif line[base] == 't':
+                    current_seq.append(2)
+                elif line[base] == 'c':
+                    current_seq.append(3)
+                elif line[base] == 'g':
+                    current_seq.append(4)
+                elif line[base] == '-':
+                    current_seq.append(0)
     
 
 
@@ -62,9 +90,25 @@ def load_sequences_into_traits():
 
             trait_sets.append(trait_set)
             targets.append(sequences[j + trait_length][i])
+
+def set_sequences_from_seq1Data():
+    return sq
+
+def all_equal_length():
+    sequences = set_sequences_from_seq1Data()
+    length = sequences[0]
+    for seq in sequences:
+        print(len(seq))
+        if len(seq) != length:
+            return False
+    return True
             
 def main():
     """
     Code goes here
     """
+    
+    print(all_equal_length())
+    
+
 main()
