@@ -1,3 +1,4 @@
+#Getting database file from: https://www.fludb.org/brc/home.spg?decorator=vipr
 
 #used by correctState fucntion
 states = {'Alabama':0,'Alaska':0,'Arizona':0,'Arkansas':0,'California':0,'Colorado':0,
@@ -81,7 +82,7 @@ def printToFile(fileName, dictionary):
     print('writing to file...')
     f =  open(fileName, 'w')
     count = 0
-    f.write('Total amount of H3N2 strains:' + str(len(dictionary)))
+    #f.write('Total amount of H3N2 strains:' + str(len(dictionary)))
     for key, value in dictionary.items():
         if count == len(dictionary):
             break
