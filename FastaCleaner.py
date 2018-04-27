@@ -96,3 +96,11 @@ if __name__== "__main__":
     #first fastfa file
     strainDict = readFile('RAW_2016_H3N2_Strains.fasta')
     printToFile('CLEAN_RAW_H3N2.fasta', strainDict)
+
+    print() 
+
+    #Second fastfa file
+    strainDict = readFile('RAW_2017_H3N2_Strains.fasta')
+    printToFile('CLEAN_RAW_2017_H3N2.fasta', strainDict)
+
+    print()
