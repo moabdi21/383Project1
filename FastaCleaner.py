@@ -30,8 +30,8 @@ def correctState(strainID):
 
     if state in states:
         #uncomment code below if you want to set a limitof strains for each state..
-        '''if states[state] == limit:
-            return False'''
+        if states[state] == limit:
+            return False
         states[state] += 1
         return True
     return False
@@ -87,7 +87,7 @@ def printToFile(fileName, dictionary):
         if count == len(dictionary):
             break
         f.write(key)
-        f.write(value)
+        f.write(str(value))
         count += 1
     f.close()
     print('completed writing to file.')
