@@ -99,6 +99,7 @@ def readFile2(fileName):
 
             tempID = line
             strainDict[tempID] = ''
+            tempString = ""
         else:
             tempString += line
         if(seqCount == limit):
