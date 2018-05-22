@@ -118,7 +118,7 @@ def printToFile(year, dictionary):
     #f.write('Total amount of H3N2 strains:' + str(len(dictionary)))
     for key, value in dictionary.items():
         if(key != False):
-            fileName = str('H3N2_Strains_'+ key + '_' +year)    
+            fileName = str(year + '_' + key +'_'+'H3N2_Strains'+  '.fasta')    
             f = open(fileName,'w')
             for key2, value2 in value.items():
                 if count == len(value) or not value2 :
@@ -132,6 +132,9 @@ def printToFile(year, dictionary):
 
 if __name__== "__main__":
     #first fastfa file
+    states = readFile('RAW_2015_H3N2_Strains.fasta')
+    printToFile('2015', states)
+
     states = readFile('RAW_2016_H3N2_Strains.fasta')
     printToFile('2016', states)
 
